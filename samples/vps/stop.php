@@ -5,10 +5,10 @@ require_once('../../FirstHeberg.class.php');
 
 $fh = new FirstHeberg(FH_LOGIN, FH_TOKEN);
 
-$srv = ''; # your server name, ex: srvXXX
+$vps = ''; # your vps name, ex: vps-XXX
 
-$datas = array('service' => $srv);
-$restart = $fh->post('/server/restart', $datas);
+$datas = array('service' => $vps);
+$restart = $fh->post('/vps/stop', $datas);
 
 if ($restart)
 {
@@ -16,12 +16,12 @@ if ($restart)
     if ($restart['result'])
     {
 
-        echo 'Restart OK';
+        echo 'Stop OK';
     }
     else
     {
 
-        echo 'Restart NOK';
+        echo 'Stop NOK';
     }
 }
 else
