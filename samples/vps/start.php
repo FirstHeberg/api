@@ -8,12 +8,12 @@ $fh = new FirstHeberg(FH_LOGIN, FH_TOKEN);
 $vps = ''; # your vps name, ex: vps-XXX
 
 $datas = array('service' => $vps);
-$restart = $fh->post('/vps/start', $datas);
+$start = $fh->post('/vps/start', $datas);
 
-if ($restart)
+if ($start)
 {
 
-    if ($restart['result'])
+    if ($start['result'])
     {
 
         echo 'Start OK';
