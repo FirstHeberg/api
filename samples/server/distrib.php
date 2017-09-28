@@ -5,10 +5,10 @@ require_once('../../FirstHeberg.class.php');
 
 $fh = new FirstHeberg(FH_LOGIN, FH_TOKEN);
 
-$vps = ''; # your vps name, ex: vps-XXX
+$srv = ''; # your server name, ex: srvXXX
 
-$datas = array('service' => $vps);
-$distrib = $fh->post('/vps/distrib', $datas);
+$datas = array('service' => $srv);
+$distrib = $fh->post('/server/distrib', $datas);
 
 if ($distrib)
 {
