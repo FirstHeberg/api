@@ -21,16 +21,7 @@ class FirstHeberg
 
         $result = $this->curl($route, $datas, 'get');
 
-        if ($result)
-        {
-
-            return json_decode($result, true);
-        }
-        else
-        {
-
-            return false;
-        }
+        return $result ? json_decode($result, true) : false;
 
     }
 
@@ -39,16 +30,7 @@ class FirstHeberg
 
         $result = $this->curl($route, $datas, 'post');
 
-        if ($result)
-        {
-
-            return json_decode($result, true);
-        }
-        else
-        {
-
-            return false;
-        }
+        return $result ? json_decode($result, true) : false;
 
     }
 
@@ -70,12 +52,12 @@ class FirstHeberg
 
         curl_setopt($ch, CURLOPT_URL, $url);
 
-        if ($method == 'post')
+        if ($method === 'post')
         {
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $datas);
         }
-        elseif ($method == 'get' and sizeof($datas) > 0)
+        elseif ($method === 'get' and count($datas) > 0)
         {
             $url .= '?' . http_build_query($datas);
         }
